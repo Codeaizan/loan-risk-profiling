@@ -11,7 +11,7 @@ from ml.routes import router as ml_router
 
 load_dotenv()
 
-CORS_ORIGIN = os.getenv("CORS_ORIGIN", "http://localhost:3000")
+cors_origin = os.getenv("CORS_ORIGIN", "http://localhost:3000")
 API_HOST = os.getenv("API_HOST", "0.0.0.0")
 
 try:
@@ -35,7 +35,7 @@ def create_app() -> FastAPI:
 
 	app.add_middleware(
 		CORSMiddleware,
-		allow_origins=[CORS_ORIGIN],
+		allow_origins=[cors_origin],
 		allow_credentials=True,
 		allow_methods=["*"],
 		allow_headers=["*"],
