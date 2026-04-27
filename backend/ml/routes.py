@@ -47,11 +47,11 @@ async def upload_dataset(
         preprocessor = DataPreprocessor(dataframe)
         scaled_array, cleaned_df, preprocessing_report = preprocessor.run_all()
 
-        kmeans = KMeansClustering(scaled_array=scaled_array, k=k)
+        kmeans = KMeansClustering(scaled_array, k=k)
         elbow_data = kmeans.run_elbow()
         kmeans_labels = kmeans.fit(k=k)
 
-        hierarchical = HierarchicalClustering(scaled_data=scaled_array)
+        hierarchical = HierarchicalClustering(scaled_array)
         hierarchical_labels = hierarchical.run(n_clusters=k)
         dendrogram_data = hierarchical.get_dendrogram_data()
 
