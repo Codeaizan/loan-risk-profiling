@@ -1,7 +1,7 @@
 const API_BASE_URL =
   process.env.NEXT_PUBLIC_API_URL?.replace(/\/+$/, "") ||
   (process.env.NODE_ENV === "production"
-    ? "https://your-render-backend-url.onrender.com"
+    ? "https://loan-risk-profiling.onrender.com/"
     : "http://localhost:8000");
 
 export interface PreprocessingReport {

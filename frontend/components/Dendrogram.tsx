@@ -30,12 +30,12 @@ const MATPLOTLIB_COLORS = [
 
 function isValidData(data: DendrogramData | null): data is DendrogramData {
 	return (
-		Boolean(data) &&
+		data !== null &&
+		data !== undefined &&
 		Array.isArray(data.icoord) &&
 		Array.isArray(data.dcoord) &&
 		data.icoord.length > 0 &&
-		data.dcoord.length > 0 &&
-		data.icoord.length === data.dcoord.length
+		data.dcoord.length > 0
 	);
 }
 
@@ -197,7 +197,7 @@ export default function Dendrogram({ data }: DendrogramProps) {
 				<h3 className="text-lg font-semibold text-slate-900">Dendrogram</h3>
 				<p className="mt-3 text-sm text-slate-600">
 					No dendrogram data available. Upload and analyze a dataset to render the
-					 hierarchical clustering tree.
+					hierarchical clustering tree.
 				</p>
 			</div>
 		);
